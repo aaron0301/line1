@@ -36,9 +36,9 @@ def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 	
-def reply(text):
+def Reply(text):
     if text == "hi":
-	    return '你好'
+	return '你好'
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

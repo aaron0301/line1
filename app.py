@@ -37,8 +37,8 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, message)
 	
 def Reply(text):
-    if text == "hi":
-	return '你好'
+	if text == "hi":
+		return '你好'
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

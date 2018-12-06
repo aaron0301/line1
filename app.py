@@ -75,7 +75,7 @@ def Button(event):
 def handle_message(event):
     try:
 	    Button(event)
-		Reply(event)
+	    #Reply(event)
     except Exception as e:
 	    line_bot_api.reply_message(event.reply_token,
 		    TextSendMessage(text=str(e)))

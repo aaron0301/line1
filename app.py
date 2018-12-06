@@ -33,7 +33,7 @@ def KeyWord(text):
     KeyWordDict = {"你好":"我很好","你是誰":"才不告訴逆雷"}
     for k in KeyWordDict.keys():
 	    if text.find(k) != -1:
-		    return[True,KeyWordDict[K]]
+		    return[True,KeyWordDict[k]]
     return[False]
 def Reply(event):
     Ktemp = KeyWord(event.message.text)

@@ -38,7 +38,7 @@ def handle_message(event):
 	
 def Reply(text):
     if text == "hi":
-        return "你好"
+        return '你好'
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

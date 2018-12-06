@@ -30,7 +30,7 @@ def callback():
         abort(400)
     return 'OK'
 def KeyWord(text):
-    KeyWordDict = {"你好":"我很好"
+    KeyWordDict = {"你好":"我很好",
 	                 "你是誰":"才不告訴逆雷"}
 	for k in KeyWordDict.keys():
 	    if text.find(k) != -1:

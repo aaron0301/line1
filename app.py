@@ -50,7 +50,7 @@ def Reply(event):
 def handle_message(event):
     try:
 	    Reply(event)
-	except Exception as e:
+    except Exception as e:
 	    line_bot_api.reply_message(event.reply_token,
 		    TextSendMessage(text=str(e)))
 import os

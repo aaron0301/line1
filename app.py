@@ -52,17 +52,17 @@ def Button(event):
         text='Please select',
         actions=[
             PostbackTemplateAction(
-                label='postback',
+                label='選項一',
                 text='postback text',
                 data='action=buy&itemid=1'
             ),
             MessageTemplateAction(
-                label='message',
+                label='選項二',
                 text='message text'
             ),
             URITemplateAction(
-                label='uri',
-                uri='http://example.com/'
+                label='姑狗一波',
+                uri='http://google.com/'
             )
         ]
     )

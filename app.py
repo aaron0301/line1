@@ -48,8 +48,8 @@ def Button(event):
         alt_text='Buttons template',
         template=ButtonsTemplate(
         thumbnail_image_url='https://example.com/image.jpg',
-        title='Menu',
-        text='Please select',
+        title=text,
+        text='快選擇阿',
         actions=[
             PostbackTemplateAction(
                 label='選項一',

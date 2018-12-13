@@ -52,13 +52,12 @@ def Button(event):
         text="快選擇阿",
         actions=[
             PostbackTemplateAction(
-                label='bug',
-                text='bug',
+                label='bug',                
                 data='bug'
             ),
             MessageTemplateAction(
                 label='87',
-                text='這倒也是'
+                text='87'
             ),
             URITemplateAction(
                 label='姑狗一波',

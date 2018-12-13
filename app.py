@@ -52,33 +52,39 @@ def Button(event):
                     label='bug',
                     data='bug'
                 ),
-                MessageTemplateAction(
-                    label='87',
+                     label='87',
                     text='87'
+               MessageTemplateAction(
                 ),
-                URITemplateAction(
                     label='不知道只好google',
                     uri='https://www.google.com/'
                 )
-            ]
+               URITemplateAction(
+             ]
         )
     )
 
 #回覆函式
 def Reply(event):
-    Ktemp = KeyWord(event)
-    if Ktemp[0]:
-        line_bot_api.reply_message(event.reply_token,
-            TextSendMessage(text = Ktemp[1]))
+    tempText = event.message.text.split(",")
+    if tempText[0] == "發送" and event.source.user_id == "Ub0778ded2c8eff813455c5a270089f46":
+        line_bot_api.push_message(tempText[1], TextSendMessage(text=tempText[2]))
     else:
-        line_bot_api.reply_message(event.reply_token,
-            Button(event))
+        Ktemp = KeyWord(event)
+        if Ktemp[0]:
+            line_bot_api.reply_message(event.reply_token,
+                TextSendMessage(text = Ktemp[1]))
+        else:
+            line_bot_api.reply_message(event.reply_token,
+                Button(event))
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     try:
         Reply(event)
+		line_bot_api.push_message("Ub0778ded2c8eff813455c5a270089f46", TextSendMessage(text=event.source.user_id))
+        line_bot_api.push_message("Ub0778ded2c8eff813455c5a270089f46", TextSendMessage(text=event.message.text))
     except Exception as e:
         line_bot_api.reply_message(event.reply_token, 
             TextSendMessage(text=str(e)))

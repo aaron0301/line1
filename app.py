@@ -53,12 +53,12 @@ def Button(event):
         actions=[
             PostbackTemplateAction(
                 label='bug',
-                text='postback text',
-                data='action=buy&itemid=1'
+                text='bug',
+                data='bug'
             ),
             MessageTemplateAction(
                 label='87',
-                text='message text'
+                text='這倒也是'
             ),
             URITemplateAction(
                 label='姑狗一波',
@@ -79,6 +79,14 @@ def handle_message(event):
     except Exception as e:
 	    line_bot_api.reply_message(event.reply_token,
 		    TextSendMessage(text=str(e)))
+#處理Postback
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    command = event.postback.data.split(',')
+    if command[0] == "bug":
+        line_bot_api.reply_message(event.reply_token, 
+            TextSendMessage(text="你說的沒錯~~~"))
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

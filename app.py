@@ -29,55 +29,60 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-def KeyWord(text):
+###========================================
+#關鍵字系統
+def KeyWord(event):
     KeyWordDict = {"你好":"我很好","你是誰":"才不告訴逆雷","故少":"臭ㄈㄓ","顧少":"臭ㄈㄓ","幹":"幹屁幹臭ㄈㄓ","靠北":"對 就是在靠北","臭":"你才臭"}
+
     for k in KeyWordDict.keys():
-	    if text.find(k) != -1:
-		    return[True,KeyWordDict[k]]
-    return[False]
+        if event.message.text.find(k) != -1:
+            return [True,KeyWordDict[k]]
+    return [False]
+
+#按鈕版面系統
+def Button(event):
+    return TemplateSendMessage(
+        alt_text='特殊訊息，請進入手機查看',
+        template=ButtonsTemplate(
+            thumbnail_image_url='https://i.imgur.com/UWMxQ8g.jpg',
+            title='瑋桓是?',
+            text='快選擇阿',
+            actions=[
+                PostbackTemplateAction(
+                    label='bug',
+                    data='bug'
+                ),
+                MessageTemplateAction(
+                    label='87',
+                    text='87'
+                ),
+                URITemplateAction(
+                    label='不知道只好google',
+                    uri='https://www.google.com/'
+                )
+            ]
+        )
+    )
+
+#回覆函式
 def Reply(event):
-    Ktemp = KeyWord(event.message.text)
+    Ktemp = KeyWord(event)
     if Ktemp[0]:
         line_bot_api.reply_message(event.reply_token,
-           TextSendMessage(text = Ktemp[1]))
+            TextSendMessage(text = Ktemp[1]))
     else:
-	    line_bot_api.reply_message(event.reply_token,
-           TextSendMessage(text = event.message.text))
-def Button(event):
-    message = TemplateSendMessage(
-        alt_text='Buttons template',
-        template=ButtonsTemplate(
-        thumbnail_image_url='https://i.imgur.com/UWMxQ8g.jpg',
-        title='瑋桓是',
-        text="快選擇阿",
-        actions=[
-            PostbackTemplateAction(
-                label='bug',                
-                data='bug'
-            ),
-            MessageTemplateAction(
-                label='87',
-                text='87'
-            ),
-            URITemplateAction(
-                label='姑狗一波',
-                uri='http://google.com/'
-            )
-        ]
-    )
-)
-    line_bot_api.reply_message(event.reply_token, message)
-
+        line_bot_api.reply_message(event.reply_token,
+            Button(event))
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     try:
-	    Button(event)
-	    #Reply(event)
+        Reply(event)
     except Exception as e:
-	    line_bot_api.reply_message(event.reply_token,
-		    TextSendMessage(text=str(e)))
+        line_bot_api.reply_message(event.reply_token, 
+            TextSendMessage(text=str(e)))
+
 #處理Postback
 @handler.add(PostbackEvent)
 def handle_postback(event):

@@ -47,7 +47,7 @@ def Button(event):
     message = TemplateSendMessage(
         alt_text='Buttons template',
         template=ButtonsTemplate(
-        thumbnail_image_url='https://i.imgur.com/Hz2AdEO.jpg',
+        thumbnail_image_url='https://i.imgur.com/UWMxQ8g.jpg',
         title='瑋桓是',
         text="快選擇阿",
         actions=[

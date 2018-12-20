@@ -98,7 +98,14 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token, 
             TextSendMessage(text="你說的沒錯~~~"))
        
-
+@handler.add(MessageEvent, message=StickerMessage)
+def handle_sticker_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        StickerSendMessage(
+            package_id=event.message.package_id,
+            sticker_id=event.message.sticker_id)
+    )	   
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

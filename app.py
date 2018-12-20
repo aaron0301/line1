@@ -31,13 +31,20 @@ def callback():
     return 'OK'
 ###========================================
 #關鍵字系統
-def KeyWord(event):
+def Keyword(event):
     KeyWordDict = {"你好":"我很好","你是誰":"才不告訴逆雷","故少":"臭ㄈㄓ","顧少":"臭ㄈㄓ","幹":"幹屁幹臭ㄈㄓ","靠北":"對 就是在靠北","臭":"你才臭"}
 
     for k in KeyWordDict.keys():
         if event.message.text.find(k) != -1:
-            return [True,KeyWordDict[k]]
-    return [False]
+            if KeyWordDict[k][0] == "text":
+                line_bot_api.reply_message(event.reply_token,TextSendMessage(text = KeyWordDict[k][1]))
+            elif KeyWordDict[k][0] == "sticker":
+                line_bot_api.reply_message(event.reply_token,StickerSendMessage(
+                    package_id=KeyWordDict[k][1],
+                    sticker_id=KeyWordDict[k][2]))
+            return True
+    return False
+
 
 #按鈕版面系統
 def Button(event):
@@ -65,19 +72,11 @@ def Button(event):
         )
     )
 
-#回覆函式
+#回覆函式，指令 > 關鍵字 > 按鈕
 def Reply(event):
-    tempText = event.message.text.split(",")
-    if tempText[0] == "發送" and event.source.user_id == "Ub0778ded2c8eff813455c5a270089f46":
-        line_bot_api.push_message(tempText[1], TextSendMessage(text=tempText[2]))
-    else:
-        Ktemp = KeyWord(event)
-        if Ktemp[0]:
-            line_bot_api.reply_message(event.reply_token,
-                TextSendMessage(text = Ktemp[1]))
-        else:
-            line_bot_api.reply_message(event.reply_token,
-                Button(event))
+    if not Command(event):
+        if not Keyword(event):
+            Button(event)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)

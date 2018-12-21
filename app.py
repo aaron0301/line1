@@ -62,9 +62,9 @@ def Button(event):
                         label='油膩肥宅',
                         data='油膩肥宅'
                     ),
-                    MessageTemplateAction(
+                    PostbackTemplateAction(
                         label='尻尻肥宅',
-                        text='尻尻肥宅'
+                        date='尻尻肥宅'
                     ),
                     URITemplateAction(
                         label='google肥宅的定義',
@@ -110,7 +110,9 @@ def handle_postback(event):
     if command[0] == "油膩肥宅":
         line_bot_api.reply_message(event.reply_token, 
             TextSendMessage(text="好油喔~~滑倒"))
-        
+    if command[0] == "尻尻肥宅":
+        line_bot_api.reply_message(event.reply_token, 
+            TextSendMessage(text="矮額，難怪洗澡要一小時"))    
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
     line_bot_api.reply_message(

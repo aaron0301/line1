@@ -54,15 +54,17 @@ def Button(event):
         TemplateSendMessage(
             alt_text='特殊訊息，請進入手機查看',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://github.com/54bp6cl6/LineBotClass/blob/master/logo.jpg?raw=true',
+                thumbnail_image_url='https://i.imgur.com/XVFvznv.jpg',
                 title='顧少是?',
                 text='還不快點選擇',
                 actions=[
                     PostbackTemplateAction(
                         label='油膩肥宅',
-                        data='油膩肥宅',
-                        label1='尻尻肥宅',
-                        date1='尻尻肥宅'
+                        data='油膩肥宅'
+                    ),
+                    MessageTemplateAction(
+                        label='尻尻肥宅',
+                        text='尻尻肥宅'
                     ),
                     URITemplateAction(
                         label='google肥宅的定義',
@@ -107,10 +109,8 @@ def handle_postback(event):
     command = event.postback.data.split(',')
     if command[0] == "油膩肥宅":
         line_bot_api.reply_message(event.reply_token, 
-            TextSendMessage(text="好油喔~~滑倒"))
-    if command[0] == "尻尻肥宅":
-        line_bot_api.reply_message(event.reply_token, 
-            TextSendMessage(text="矮額，難怪洗澡要一小時"))    
+            TextSendMessage(text="好油喔~~滑倒~"))
+        
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
     line_bot_api.reply_message(

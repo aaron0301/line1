@@ -55,20 +55,20 @@ def Button(event):
             alt_text='特殊訊息，請進入手機查看',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://github.com/54bp6cl6/LineBotClass/blob/master/logo.jpg?raw=true',
-                title='HPClub - Line Bot 教學',
-                text='大家學會了ㄇ',
+                title='顧少是?',
+                text='還不快點選擇',
                 actions=[
                     PostbackTemplateAction(
-                        label='還沒',
-                        data='還沒'
+                        label='油膩肥宅',
+                        data='油膩肥宅'
                     ),
                     MessageTemplateAction(
-                        label='差不多了',
-                        text='差不多了'
+                        label='尻尻肥宅',
+                        text='尻尻肥宅'
                     ),
                     URITemplateAction(
-                        label='幫我們按個讚',
-                        uri='https://www.facebook.com/ShuHPclub'
+                        label='google肥宅的定義',
+                        uri='http://bfy.tw/LSI6'
                     )
                 ]
             )
@@ -107,9 +107,9 @@ def handle_message(event):
 @handler.add(PostbackEvent)
 def handle_postback(event):
     command = event.postback.data.split(',')
-    if command[0] == "還沒":
+    if command[0] == "油膩肥宅":
         line_bot_api.reply_message(event.reply_token, 
-            TextSendMessage(text="還沒就趕快練習去~~~"))
+            TextSendMessage(text="好油喔~~滑倒"))
         
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):

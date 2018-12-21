@@ -33,9 +33,13 @@ def callback():
 #關鍵字系統
 def Keyword(event):
     KeyWordDict = {"你好":["text","你也好啊"],
-                   "你是誰":["text","我是大帥哥"],
-                   "差不多了":["text","讚!!!"],
-                   "帥":["sticker",'1','120']}
+                   "你是誰":["text","才不告訴逆雷"],
+                   "尻尻肥宅":["text","矮噁~難怪洗澡要一小時"],
+                   "帥":["sticker",'1','120'],
+                   "幹":["text","幹屁幹臭ㄈㄓ"],
+                   "靠北":["text","對 就是在靠北"],
+                   "臭":["text","你才臭"],
+                   }
 
     for k in KeyWordDict.keys():
         if event.message.text.find(k) != -1:

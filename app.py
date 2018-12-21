@@ -60,11 +60,9 @@ def Button(event):
                 actions=[
                     PostbackTemplateAction(
                         label='油膩肥宅',
-                        data='油膩肥宅'
-                    ),
-                    PostbackTemplateAction(
-                        label='尻尻肥宅',
-                        date='尻尻肥宅'
+                        data='油膩肥宅',
+                        label1='尻尻肥宅',
+                        date1='尻尻肥宅'
                     ),
                     URITemplateAction(
                         label='google肥宅的定義',

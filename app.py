@@ -36,7 +36,6 @@ def Keyword(event):
                    "你是誰":["text","才不告訴逆雷"],
                    "沒有":["text","逆壞壞"],
                    "帥":["sticker",'1','120'],
-                   "幹":["text","幹屁幹臭ㄈㄓ"],
                    "位置":["text","這功能我還沒寫"],
                    "錢":["text","想要的話就去賺阿"],
                    "捷運":["img","https://web.metro.taipei/img/all/routemap2018.jpg"]
@@ -79,8 +78,8 @@ def Button(event):
                         text='沒有'
                     ),
                     URITemplateAction(
-                        label='google肥宅的定義',
-                        uri='http://bfy.tw/LSI6'
+                        label='google',
+                        uri='https://www.google.com.tw/'
                     )
                 ]
             )

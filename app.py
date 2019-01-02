@@ -34,7 +34,7 @@ def callback():
 def Keyword(event):
     KeyWordDict = {"你好":["text","你也好啊"],
                    "你是誰":["text","才不告訴逆雷"],
-                   "尻尻肥宅":["text","矮噁~難怪洗澡要一小時"],
+                   "沒有":["text","逆壞壞"],
                    "帥":["sticker",'1','120'],
                    "幹":["text","幹屁幹臭ㄈㄓ"],
                    "位置":["text","這功能我還沒寫"],
@@ -66,17 +66,17 @@ def Button(event):
         TemplateSendMessage(
             alt_text='特殊訊息，請進入手機查看',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/XVFvznv.jpg',
-                title='顧少是?',
+                thumbnail_image_url='https://pic.pimg.tw/bwyd67/1471350593-2114545014.jpg',
+                title='有沒有認真聽報告?',
                 text='還不快點選擇',
                 actions=[
                     PostbackTemplateAction(
-                        label='油膩肥宅',
-                        data='油膩肥宅'
+                        label='有',
+                        data='有'
                     ),
                     MessageTemplateAction(
-                        label='尻尻肥宅',
-                        text='尻尻肥宅'
+                        label='沒有',
+                        text='沒有'
                     ),
                     URITemplateAction(
                         label='google肥宅的定義',
@@ -119,17 +119,17 @@ def handle_message(event):
 @handler.add(PostbackEvent)
 def handle_postback(event):
     command = event.postback.data.split(',')
-    if command[0] == "油膩肥宅":
+    if command[0] == "有":
         line_bot_api.reply_message(event.reply_token, 
-            TextSendMessage(text="好油喔~~滑倒~"))
+            TextSendMessage(text="恩恩很好"))
         
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         StickerSendMessage(
-            package_id='1',
-            sticker_id='410')
+            package_id=event.message.package_id,
+            sticker_id=event.message.sticker_id)
     )
 
 import os

@@ -39,6 +39,7 @@ def Keyword(event):
                    "幹":["text","幹屁幹臭ㄈㄓ"],
                    "位置":["text","這功能我還沒寫"],
                    "錢":["text","想要的話就去賺阿"],
+                   "捷運":["img","https://web.metro.taipei/img/all/routemap2018.jpg"]
                    }
 
     for k in KeyWordDict.keys():
@@ -49,6 +50,13 @@ def Keyword(event):
                 line_bot_api.reply_message(event.reply_token,StickerSendMessage(
                     package_id=KeyWordDict[k][1],
                     sticker_id=KeyWordDict[k][2]))
+            elif KeyWordDict[k][0] == "img":
+                line_bot_api.reply_message(event.reply_token,
+                    ImageSendMessage(
+                        original_content_url=KeyWordDict[k][1],
+                        preview_image_url=KeyWordDict[k][1]
+                    )
+                )
             return True
     return False
 

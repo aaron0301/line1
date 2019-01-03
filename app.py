@@ -89,7 +89,7 @@ def Button(event):
 #指令系統，若觸發指令會回傳True
 def Command(event):
     tempText = event.message.text.split(",")
-    if tempText[0] == "發送" and event.source.user_id == "U95418ebc4fffefdd89088d6f9dabd75b":
+    if tempText[0] == "發送" and event.source.user_id == "Ub0778ded2c8eff813455c5a270089f46":
         line_bot_api.push_message(tempText[1], TextSendMessage(text=tempText[2]))
         return True
     else:
@@ -107,8 +107,8 @@ def handle_message(event):
     try:
         Reply(event)
         
-        line_bot_api.push_message("U95418ebc4fffefdd89088d6f9dabd75b", TextSendMessage(text=event.source.user_id + "說:"))
-        line_bot_api.push_message("U95418ebc4fffefdd89088d6f9dabd75b", TextSendMessage(text=event.message.text))
+        line_bot_api.push_message("Ub0778ded2c8eff813455c5a270089f46", TextSendMessage(text=event.source.user_id + "說:"))
+        line_bot_api.push_message("Ub0778ded2c8eff813455c5a270089f46", TextSendMessage(text=event.message.text))
         
     except Exception as e:
         line_bot_api.reply_message(event.reply_token, 

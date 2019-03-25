@@ -60,6 +60,7 @@ def Keyword(event):
     return False
 
 #按鈕版面系統
+'''
 def Button(event):
     line_bot_api.reply_message(event.reply_token,
         TemplateSendMessage(
@@ -85,7 +86,7 @@ def Button(event):
             )
         )
     )
-
+'''
 #指令系統，若觸發指令會回傳True
 def Command(event):
     tempText = event.message.text.split(",")

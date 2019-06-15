@@ -39,9 +39,9 @@ def Keyword(event):
                    "錢":["text","想要的話就去賺阿"],
                    "捷運":["img","https://web.metro.taipei/img/all/routemap2018.jpg"],
                    "#課下去":["img","https://drive.google.com/file/d/1dQzm2aZSaTCpihOzTvzypufyHr4Xrl7O/view?usp=sharing"],
-                   "咕嚕靈波":["img","https://drive.google.com/file/d/1RLdtSSLh-7oL6p8dPmXKjHCLuNPsVzsg/view?usp=sharing"],
-                   "7500":["img","https://drive.google.com/file/d/1XvCcbCfzdE91Z7DjAIPCH9JkiNaASa-q/view?usp=sharing"],
-                   "當然":["img","https://drive.google.com/file/d/1okCTonPjFckRqKv0K4eqk7tHQeHLe095/view?usp=sharing"]
+                   "咕嚕靈波":["img","https://imgur.com/a/dv7EGIk"],
+                   "7500":["img","https://imgur.com/a/P1ivoLo"],
+                   "當然":["img","https://imgur.com/a/RNjBWCu"]
                    }
 
     for k in KeyWordDict.keys():

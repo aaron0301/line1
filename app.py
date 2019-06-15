@@ -116,7 +116,7 @@ def handle_message(event):
             TextSendMessage(text=str(e)))
 
 #處理Postback
-@handler.add(PostbackEvent)
+'''@handler.add(PostbackEvent)
 def handle_postback(event):
     command = event.postback.data.split(',')
     if command[0] == "有":
@@ -131,7 +131,7 @@ def handle_sticker_message(event):
             package_id=event.message.package_id,
             sticker_id=event.message.sticker_id)
     )
-
+'''
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

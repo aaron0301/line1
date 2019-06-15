@@ -100,7 +100,7 @@ def Command(event):
 def Reply(event):
     if not Command(event):
         if not Keyword(event):
-        '''    Button(event)'''
+            Button(event)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)

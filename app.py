@@ -37,11 +37,9 @@ def Keyword(event):
                    "帥":["sticker",'1','120'],
                    "位置":["text","這功能我還沒寫"],
                    "錢":["text","想要的話就去賺阿"],
-                   "捷運":["img","https://web.metro.taipei/img/all/routemap2018.jpg"],
-                   "#課下去":["img","https://drive.google.com/file/d/1dQzm2aZSaTCpihOzTvzypufyHr4Xrl7O/view?usp=sharing"],
-                   "咕嚕靈波":["img","https://imgur.com/a/dv7EGIk"],
-                   "7500":["img","https://imgur.com/a/P1ivoLo"],
-                   "當然":["img","https://imgur.com/a/RNjBWCu"]
+                   "捷運":["img","https://web.metro.taipei/img/all/routemap2018.jpg"]
+                   
+                   
                    }
 
     for k in KeyWordDict.keys():

@@ -35,8 +35,8 @@ def Keyword(event):
     KeyWordDict = {"你好":["text","你也好啊"],
                    "你是誰":["text","才不告訴逆雷"],
                    "帥":["sticker",'1','120'],
-                   "捷運":["img","https://web.metro.taipei/img/all/routemap2018.jpg"]
-                   
+                   "捷運":["img","https://web.metro.taipei/img/all/routemap2018.jpg"],
+                   "!1-5":["text","1輕母+3驅逐or海防"]
                    
                    }
 
